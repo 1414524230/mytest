@@ -10,7 +10,6 @@ import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
 import org.apache.cxf.interceptor.OutInterceptors;
 import org.junit.Test;
-
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
 import java.io.BufferedReader;
@@ -31,52 +30,44 @@ public class WebServiceClient {
     public void invoke(){
         URL url = null;
         try {
-//            url = new URL("http://172.25.36.244:8085/webServiceDemo?wsdl");
             url = new URL("http://172.25.37.9:8085/webServiceDemo?wsdl");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
         //创建服务名称
         //1.namespaceURI - 命名空间地址
         //2.localPart - 服务视图名
         QName qname = new QName("http://service.cnbg.com/sample/sample/intf", "SampleService");
         javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
         Sample port = service.getPort(Sample.class);
-//        Sample port = service.getPort(Sample.class);
         SampleRequest sampleRequest = new SampleRequest();
         RequestHeadDTO requestHeadDTO = new RequestHeadDTO();
         requestHeadDTO.setConsumerID("z");
         requestHeadDTO.setProviderID("s");
         requestHeadDTO.setReqSeqNo("w");
         sampleRequest.setRequestHead(requestHeadDTO);
-
         SampleRequestDTO sampleRequestDTO = new SampleRequestDTO();
         sampleRequestDTO.setInput1("4");
         sampleRequest.setRequestBody(sampleRequestDTO);
-
         SampleResponse sample = port.sample(sampleRequest);
         System.out.println(sample);
     }
 
     /**
-     * call 调用 接口方式
+     * Axiscall 调用 接口方式
      */
     @Test
     public void invoke1(){
         try {
-//            String url = "http://172.25.37.9:8085/webServiceDemo?wsdl";
             String url = "http://172.25.37.9:8085/secondService?wsdl";
             Service service = new Service();
             Call call = (Call) service.createCall();
             QName qn = new QName("http://service.cnbg.com/sample/sample/intf", "second");
             call.setTargetEndpointAddress(new URL(url));
-//            call.setOperationName(new QName("http://service.cnbg.com/sample/sample/intf", "zf"));
             call.setOperationName(qn);
             //        call.setUseSOAPAction(true);
             //        call.setSOAPActionURI("http://com.soft.ws/my/authorization");
             call.addParameter("xml", XMLType.XSD_STRING, ParameterMode.IN);
-
             call.setReturnType(XMLType.XSD_STRING);
             String xml="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bean=\"http://service.cnbg.com/sample/sample/bean\" xmlns:head=\"http://service.cnbg.com/common/head\">\n" +
                     "   <soapenv:Header/>\n" +
@@ -128,30 +119,24 @@ public class WebServiceClient {
         //3.3设置输入输出，新创建的connection默认是没有读写权限的，
         connection.setDoInput(true);
         connection.setDoOutput(true);
-
         //4：组织SOAP协议数据，发送给服务端
 //        String soapXML = getXML("z","f","q","y","n","q","v");
         String soapXML = getAceXml("z","f","1","y","n","q","v");
-
         OutputStream os = connection.getOutputStream();
         os.write(soapXML.getBytes());
-
         //5：接收服务端的响应
         int responseCode = connection.getResponseCode();
         if(200 == responseCode){//表示服务端响应成功
             InputStream is = connection.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
-
             StringBuilder sb = new StringBuilder();
             String temp = null;
-
             while(null != (temp = br.readLine())){
                 sb.append(temp);
             }
             //打印服务端响应
             System.out.println(sb.toString());
-
             is.close();
             isr.close();
             br.close();
@@ -187,7 +172,6 @@ public class WebServiceClient {
         return soapXML;
     }
 
-
     /**
      * 调用ACE上发布的webservice服务 需要组织的xml格式
      * @param reqSeqNo
@@ -216,6 +200,4 @@ public class WebServiceClient {
                 "</tns0:Envelope>";
         return xml;
     }
-
-
 }
