@@ -1,6 +1,7 @@
 package com.session.share.demo.controller;
 
 
+import com.session.share.demo.bean.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,9 @@ public class MyController {
     public String setName(HttpServletRequest request,@PathVariable("name") String name){
         System.out.println("接收到的name="+" "+name);
         HttpSession session = request.getSession();
-        session.setAttribute("name",name);
+        User user = new User();
+        user.setName(name);
+        session.setAttribute("user",user);
         return "success";
     }
 
@@ -34,9 +37,9 @@ public class MyController {
     @GetMapping(value = "/getname")
     public String getName(HttpServletRequest request){
         HttpSession session = request.getSession();
-        String name =(String) session.getAttribute("name");
-        System.out.println(name);
-        return name;
+        User user=(User) session.getAttribute("user");
+        System.out.println(user);
+        return user.getName();
     }
 
 

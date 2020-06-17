@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: sessionfirst
+    name: sessiontwo
 
   redis:
     password: 123456
