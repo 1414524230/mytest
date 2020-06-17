@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>ResponseHeadDTO complex typeµÄ Java Àà¡£
- * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖÐµÄÔ¤ÆÚÄÚÈÝ¡£
- * 
+ * <p>ResponseHeadDTO complex typeï¿½ï¿½ Java ï¿½à¡£
+ *
+ * <p>ï¿½ï¿½ï¿½ï¿½Ä£Ê½Æ¬ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+ *
  * <pre>
  * &lt;complexType name="ResponseHeadDTO"&gt;
  *   &lt;complexContent&gt;
@@ -30,19 +30,17 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ResponseHeadDTO", propOrder = {
-    "seqNo",
-    "reqSeqNo",
-    "respSeqNo",
-    "status",
-    "esbCode",
-    "esbMessage",
-    "appCode",
-    "appMessage"
+        "seqNo",
+        "reqSeqNo",
+        "respSeqNo",
+        "status",
+        "esbCode",
+        "esbMessage",
+        "appCode",
+        "appMessage"
 })
 public class ResponseHeadDTO {
 
@@ -57,184 +55,154 @@ public class ResponseHeadDTO {
     protected String appMessage;
 
     /**
-     * »ñÈ¡seqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡seqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSeqNo() {
         return seqNo;
     }
 
     /**
-     * ÉèÖÃseqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½seqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSeqNo(String value) {
         this.seqNo = value;
     }
 
     /**
-     * »ñÈ¡reqSeqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡reqSeqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReqSeqNo() {
         return reqSeqNo;
     }
 
     /**
-     * ÉèÖÃreqSeqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½reqSeqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setReqSeqNo(String value) {
         this.reqSeqNo = value;
     }
 
     /**
-     * »ñÈ¡respSeqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡respSeqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRespSeqNo() {
         return respSeqNo;
     }
 
     /**
-     * ÉèÖÃrespSeqNoÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½respSeqNoï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRespSeqNo(String value) {
         this.respSeqNo = value;
     }
 
     /**
-     * »ñÈ¡statusÊôÐÔµÄÖµ¡£
-     * 
+     * ï¿½ï¿½È¡statusï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
      */
     public int getStatus() {
         return status;
     }
 
     /**
-     * ÉèÖÃstatusÊôÐÔµÄÖµ¡£
-     * 
+     * ï¿½ï¿½ï¿½ï¿½statusï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
      */
     public void setStatus(int value) {
         this.status = value;
     }
 
     /**
-     * »ñÈ¡esbCodeÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡esbCodeï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEsbCode() {
         return esbCode;
     }
 
     /**
-     * ÉèÖÃesbCodeÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½esbCodeï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEsbCode(String value) {
         this.esbCode = value;
     }
 
     /**
-     * »ñÈ¡esbMessageÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡esbMessageï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEsbMessage() {
         return esbMessage;
     }
 
     /**
-     * ÉèÖÃesbMessageÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½esbMessageï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEsbMessage(String value) {
         this.esbMessage = value;
     }
 
     /**
-     * »ñÈ¡appCodeÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡appCodeï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAppCode() {
         return appCode;
     }
 
     /**
-     * ÉèÖÃappCodeÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½appCodeï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAppCode(String value) {
         this.appCode = value;
     }
 
     /**
-     * »ñÈ¡appMessageÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½È¡appMessageï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAppMessage() {
         return appMessage;
     }
 
     /**
-     * ÉèÖÃappMessageÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½appMessageï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAppMessage(String value) {
         this.appMessage = value;

@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.*;
 
 
 /**
- * <p>anonymous complex typeµÄ Java Àà¡£
- * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖÐµÄÔ¤ÆÚÄÚÈÝ¡£
- * 
+ * <p>anonymous complex typeï¿½ï¿½ Java ï¿½à¡£
+ *
+ * <p>ï¿½ï¿½ï¿½ï¿½Ä£Ê½Æ¬ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -24,13 +24,11 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "requestHead",
-    "requestBody"
+        "requestHead",
+        "requestBody"
 })
 @XmlRootElement(name = "SampleRequest")
 public class SampleRequest {
@@ -41,48 +39,40 @@ public class SampleRequest {
     protected SampleRequestDTO requestBody;
 
     /**
-     * »ñÈ¡requestHeadÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequestHeadDTO }
-     *     
+     * ï¿½ï¿½È¡requestHeadï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link RequestHeadDTO }
      */
     public RequestHeadDTO getRequestHead() {
         return requestHead;
     }
 
     /**
-     * ÉèÖÃrequestHeadÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequestHeadDTO }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½requestHeadï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link RequestHeadDTO }
      */
     public void setRequestHead(RequestHeadDTO value) {
         this.requestHead = value;
     }
 
     /**
-     * »ñÈ¡requestBodyÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link SampleRequestDTO }
-     *     
+     * ï¿½ï¿½È¡requestBodyï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link SampleRequestDTO }
      */
     public SampleRequestDTO getRequestBody() {
         return requestBody;
     }
 
     /**
-     * ÉèÖÃrequestBodyÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SampleRequestDTO }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½requestBodyï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link SampleRequestDTO }
      */
     public void setRequestBody(SampleRequestDTO value) {
         this.requestBody = value;

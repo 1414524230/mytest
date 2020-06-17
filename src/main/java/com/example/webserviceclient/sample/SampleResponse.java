@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.*;
 
 
 /**
- * <p>anonymous complex typeµÄ Java Àà¡£
- * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖÐµÄÔ¤ÆÚÄÚÈÝ¡£
- * 
+ * <p>anonymous complex typeï¿½ï¿½ Java ï¿½à¡£
+ *
+ * <p>ï¿½ï¿½ï¿½ï¿½Ä£Ê½Æ¬ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -24,13 +24,11 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "responseHead",
-    "responseBody"
+        "responseHead",
+        "responseBody"
 })
 @XmlRootElement(name = "SampleResponse")
 public class SampleResponse {
@@ -40,48 +38,40 @@ public class SampleResponse {
     protected SampleResponseDTO responseBody;
 
     /**
-     * »ñÈ¡responseHeadÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link ResponseHeadDTO }
-     *     
+     * ï¿½ï¿½È¡responseHeadï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link ResponseHeadDTO }
      */
     public ResponseHeadDTO getResponseHead() {
         return responseHead;
     }
 
     /**
-     * ÉèÖÃresponseHeadÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link ResponseHeadDTO }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½responseHeadï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link ResponseHeadDTO }
      */
     public void setResponseHead(ResponseHeadDTO value) {
         this.responseHead = value;
     }
 
     /**
-     * »ñÈ¡responseBodyÊôÐÔµÄÖµ¡£
-     * 
-     * @return
-     *     possible object is
-     *     {@link SampleResponseDTO }
-     *     
+     * ï¿½ï¿½È¡responseBodyï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @return possible object is
+     * {@link SampleResponseDTO }
      */
     public SampleResponseDTO getResponseBody() {
         return responseBody;
     }
 
     /**
-     * ÉèÖÃresponseBodyÊôÐÔµÄÖµ¡£
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SampleResponseDTO }
-     *     
+     * ï¿½ï¿½ï¿½ï¿½responseBodyï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
+     *
+     * @param value allowed object is
+     *              {@link SampleResponseDTO }
      */
     public void setResponseBody(SampleResponseDTO value) {
         this.responseBody = value;

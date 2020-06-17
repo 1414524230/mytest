@@ -10,6 +10,7 @@ import org.apache.axis.client.Service;
 import org.apache.axis.encoding.XMLType;
 import org.apache.cxf.interceptor.OutInterceptors;
 import org.junit.Test;
+
 import javax.xml.namespace.QName;
 import javax.xml.rpc.ParameterMode;
 import java.io.BufferedReader;
@@ -20,14 +21,13 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-@OutInterceptors(interceptors = { "com.example.webserviceclient.apdter.ArtifactOutInterceptor" })
+@OutInterceptors(interceptors = {"com.example.webserviceclient.apdter.ArtifactOutInterceptor"})
 public class WebServiceClient {
-
 
 
     //此方式是通过wsdl生成服务端代码之后调用
     @Test
-    public void invoke(){
+    public void invoke() {
         URL url = null;
         try {
             url = new URL("http://172.25.37.9:8085/webServiceDemo?wsdl");
@@ -57,7 +57,7 @@ public class WebServiceClient {
      * Axiscall 调用 接口方式
      */
     @Test
-    public void invoke1(){
+    public void invoke1() {
         try {
             String url = "http://172.25.37.9:8085/secondService?wsdl";
             Service service = new Service();
@@ -69,7 +69,7 @@ public class WebServiceClient {
             //        call.setSOAPActionURI("http://com.soft.ws/my/authorization");
             call.addParameter("xml", XMLType.XSD_STRING, ParameterMode.IN);
             call.setReturnType(XMLType.XSD_STRING);
-            String xml="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bean=\"http://service.cnbg.com/sample/sample/bean\" xmlns:head=\"http://service.cnbg.com/common/head\">\n" +
+            String xml = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bean=\"http://service.cnbg.com/sample/sample/bean\" xmlns:head=\"http://service.cnbg.com/common/head\">\n" +
                     "   <soapenv:Header/>\n" +
                     "   <soapenv:Body>\n" +
                     "      <bean:SampleRequest>\n" +
@@ -94,14 +94,13 @@ public class WebServiceClient {
                     "</soapenv:Envelope>";
             Object result = call.invoke(new Object[]{xml});
             System.out.println(result.toString());
-        }catch (Exception e){
-            System.out.println(e+"  ");
+        } catch (Exception e) {
+            System.out.println(e + "  ");
         }
     }
 
     /**
      * httpconnection 调用 本地webservice服务
-     *
      */
     @Test
     public void http() throws Exception {
@@ -121,18 +120,18 @@ public class WebServiceClient {
         connection.setDoOutput(true);
         //4：组织SOAP协议数据，发送给服务端
 //        String soapXML = getXML("z","f","q","y","n","q","v");
-        String soapXML = getAceXml("z","f","1","y","n","q","v");
+        String soapXML = getAceXml("z", "f", "1", "y", "n", "q", "v");
         OutputStream os = connection.getOutputStream();
         os.write(soapXML.getBytes());
         //5：接收服务端的响应
         int responseCode = connection.getResponseCode();
-        if(200 == responseCode){//表示服务端响应成功
+        if (200 == responseCode) {//表示服务端响应成功
             InputStream is = connection.getInputStream();
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
             String temp = null;
-            while(null != (temp = br.readLine())){
+            while (null != (temp = br.readLine())) {
                 sb.append(temp);
             }
             //打印服务端响应
@@ -146,24 +145,25 @@ public class WebServiceClient {
 
     /**
      * 调用本地发布的webservice服务需要的xml 报文格式
+     *
      * @param
      * @return
      */
-    public static String getXML(String reqSeqNo,String serviceName,String version,String consumerID,String providerID,String sign,String input1){
-        String soapXML="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bean=\"http://service.cnbg.com/sample/sample/bean\" xmlns:head=\"http://service.cnbg.com/common/head\">\n" +
+    public static String getXML(String reqSeqNo, String serviceName, String version, String consumerID, String providerID, String sign, String input1) {
+        String soapXML = "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:bean=\"http://service.cnbg.com/sample/sample/bean\" xmlns:head=\"http://service.cnbg.com/common/head\">\n" +
                 "   <soapenv:Header/>\n" +
                 "   <soapenv:Body>\n" +
                 "      <bean:SampleRequest>\n" +
                 "         <bean:requestHead>\n" +
-                "            <head:reqSeqNo>"+reqSeqNo+"</head:reqSeqNo>\n" +
-                "            <head:serviceName>"+serviceName+"</head:serviceName>\n" +
-                "            <head:version>"+version+"</head:version>\n" +
-                "            <head:consumerID>"+consumerID+"</head:consumerID>\n" +
-                "            <head:providerID>"+providerID+"</head:providerID>\n" +
-                "            <head:sign>"+sign+"</head:sign>\n" +
+                "            <head:reqSeqNo>" + reqSeqNo + "</head:reqSeqNo>\n" +
+                "            <head:serviceName>" + serviceName + "</head:serviceName>\n" +
+                "            <head:version>" + version + "</head:version>\n" +
+                "            <head:consumerID>" + consumerID + "</head:consumerID>\n" +
+                "            <head:providerID>" + providerID + "</head:providerID>\n" +
+                "            <head:sign>" + sign + "</head:sign>\n" +
                 "         </bean:requestHead>\n" +
                 "         <bean:requestBody>\n" +
-                "            <bean:input1>"+input1+"</bean:input1>\n" +
+                "            <bean:input1>" + input1 + "</bean:input1>\n" +
                 "         </bean:requestBody>\n" +
                 "      </bean:SampleRequest>\n" +
                 "   </soapenv:Body>\n" +
@@ -174,6 +174,7 @@ public class WebServiceClient {
 
     /**
      * 调用ACE上发布的webservice服务 需要组织的xml格式
+     *
      * @param reqSeqNo
      * @param serviceName
      * @param version
@@ -183,18 +184,18 @@ public class WebServiceClient {
      * @param input1
      * @return
      */
-    public static String getAceXml(String reqSeqNo,String serviceName,String version,String consumerID,String providerID,String sign,String input1){
-        String xml="<?xml version=\"1.0\" encoding=\"UTF-8\"?><tns0:Envelope xmlns:tns0=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns1=\"http://fenliu\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n" +
+    public static String getAceXml(String reqSeqNo, String serviceName, String version, String consumerID, String providerID, String sign, String input1) {
+        String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><tns0:Envelope xmlns:tns0=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:tns1=\"http://fenliu\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n" +
                 "  <tns0:Header/>\n" +
                 "  <tns0:Body>\n" +
                 "    <tns1:service>\n" +
-                "      <reqSeqNo>"+reqSeqNo+"</reqSeqNo>\n" +
-                "      <serviceName>"+serviceName+"</serviceName>\n" +
-                "      <version>"+version+"</version>\n" +
-                "      <consumerID>"+consumerID+"</consumerID>\n" +
-                "      <providerID>"+providerID+"</providerID>\n" +
-                "      <sign>"+sign+"</sign>\n" +
-                "      <input1>"+input1+"</input1>\n" +
+                "      <reqSeqNo>" + reqSeqNo + "</reqSeqNo>\n" +
+                "      <serviceName>" + serviceName + "</serviceName>\n" +
+                "      <version>" + version + "</version>\n" +
+                "      <consumerID>" + consumerID + "</consumerID>\n" +
+                "      <providerID>" + providerID + "</providerID>\n" +
+                "      <sign>" + sign + "</sign>\n" +
+                "      <input1>" + input1 + "</input1>\n" +
                 "    </tns1:service>\n" +
                 "  </tns0:Body>\n" +
                 "</tns0:Envelope>";

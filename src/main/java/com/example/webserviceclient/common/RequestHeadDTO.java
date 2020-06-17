@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>RequestHeadDTO complex type�� Java �ࡣ
- * 
+ *
  * <p>����ģʽƬ��ָ�������ڴ����е�Ԥ�����ݡ�
- * 
+ *
  * <pre>
  * &lt;complexType name="RequestHeadDTO"&gt;
  *   &lt;complexContent&gt;
@@ -28,17 +28,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "RequestHeadDTO", propOrder = {
-    "reqSeqNo",
-    "serviceName",
-    "version",
-    "consumerID",
-    "providerID",
-    "sign"
+        "reqSeqNo",
+        "serviceName",
+        "version",
+        "consumerID",
+        "providerID",
+        "sign"
 })
 
 public class RequestHeadDTO {
@@ -54,11 +52,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡreqSeqNo���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReqSeqNo() {
         return reqSeqNo;
@@ -66,11 +62,9 @@ public class RequestHeadDTO {
 
     /**
      * ����reqSeqNo���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setReqSeqNo(String value) {
         this.reqSeqNo = value;
@@ -78,11 +72,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡserviceName���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getServiceName() {
         return serviceName;
@@ -90,11 +82,9 @@ public class RequestHeadDTO {
 
     /**
      * ����serviceName���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setServiceName(String value) {
         this.serviceName = value;
@@ -102,11 +92,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡversion���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getVersion() {
         return version;
@@ -114,11 +102,9 @@ public class RequestHeadDTO {
 
     /**
      * ����version���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setVersion(String value) {
         this.version = value;
@@ -126,11 +112,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡconsumerID���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getConsumerID() {
         return consumerID;
@@ -138,11 +122,9 @@ public class RequestHeadDTO {
 
     /**
      * ����consumerID���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setConsumerID(String value) {
         this.consumerID = value;
@@ -150,11 +132,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡproviderID���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getProviderID() {
         return providerID;
@@ -162,11 +142,9 @@ public class RequestHeadDTO {
 
     /**
      * ����providerID���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setProviderID(String value) {
         this.providerID = value;
@@ -174,11 +152,9 @@ public class RequestHeadDTO {
 
     /**
      * ��ȡsign���Ե�ֵ��
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSign() {
         return sign;
@@ -186,11 +162,9 @@ public class RequestHeadDTO {
 
     /**
      * ����sign���Ե�ֵ��
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSign(String value) {
         this.sign = value;

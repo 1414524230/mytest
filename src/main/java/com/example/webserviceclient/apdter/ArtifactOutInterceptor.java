@@ -51,7 +51,7 @@ public class ArtifactOutInterceptor extends AbstractPhaseInterceptor<Message> {
 
 
         } catch (Exception e) {
-            System.out.println(e+"ERROR");
+            System.out.println(e + "ERROR");
         }
     }
 
