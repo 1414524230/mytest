@@ -30,8 +30,9 @@ public class SearchDemo  {
     @Autowired
     private JestClient jestClient;
 
+    //索引名称
     private final String indexName="qyn";
-
+    //索引类型
     private final String typeName="doc";
 
 
