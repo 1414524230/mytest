@@ -103,7 +103,7 @@ public class SearchDemo {
         String indexName = "qyn";
         String typeName = "doc";
 //        User user = new User("张三", 20, "张三是个Java开发工程师");
-        User user = new User("乔伊娜", 25, "非贼磕死");
+        User user = new User("二哈", 25, "非贼磕死");
         Index index = new Index.Builder(user).index(indexName).type(typeName).id("qyn").build();
         try {
             JestResult jr = jestClient.execute(index);
