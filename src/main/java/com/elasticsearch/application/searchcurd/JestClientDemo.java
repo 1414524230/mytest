@@ -23,7 +23,7 @@ import java.util.List;
 
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
-public class SearchDemo {
+public class JestClientDemo {
 
 
     @Autowired
