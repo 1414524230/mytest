@@ -1,24 +1,22 @@
 package com.elasticsearch.application.searchcurd;
 
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.alibaba.fastjson.JSON;
 import com.elasticsearch.application.Application;
 import com.elasticsearch.application.User;
-import com.google.gson.JsonObject;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.xcontent.XContentBuilder;
-import org.elasticsearch.common.xcontent.XContentFactory;
 import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.index.query.*;
-import org.elasticsearch.search.aggregations.Aggregations;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.MatchQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +34,13 @@ public class RestHighLevelClientDemo {
     @Autowired
     private RestHighLevelClient restHighLevelClient;
 
-    private String index="bilibili";
+    private String index = "bilibili";
 
-    private String type="zbc";
+    private String type = "zbc";
 
     /**
-     *
      * 创建一个索引,并插入数据
+     *
      * @throws IOException
      */
     @Test
@@ -61,8 +59,8 @@ public class RestHighLevelClientDemo {
      * 修改索引中的对象值
      */
     @Test
-    public void updateTest(){
-        String id="1";
+    public void updateTest() {
+        String id = "1";
         UpdateRequest updateRequest = new UpdateRequest(index, type, id);
         Map<String, Object> map = new HashMap<>();
         map.put("name", "吴二狗");
@@ -79,13 +77,13 @@ public class RestHighLevelClientDemo {
      * 根据条件查询
      */
     @Test
-    public void queryTest(){
+    public void queryTest() {
         SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
         //设置分页查询
         sourceBuilder.from(0);
         sourceBuilder.size(10);
         //设置返回的数据中所需要的字段
-        sourceBuilder.fetchSource(new String[]{"age","name"}, new String[]{});
+        sourceBuilder.fetchSource(new String[]{"age", "name"}, new String[]{});
 
         MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("age", "22");
 //        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("name", "吴二狗");
@@ -105,12 +103,19 @@ public class RestHighLevelClientDemo {
         searchRequest.source(sourceBuilder);
         try {
             SearchResponse response = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+            //处理返回值----------
+            SearchHits hits = response.getHits();
+            SearchHit[] hits1 = hits.getHits();
+            for (SearchHit documentFields : hits1) {
+                String sourceAsString = documentFields.getSourceAsString();
+                System.out.println(sourceAsString);
+            }
+            //---------------------
             System.out.println(response);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }
