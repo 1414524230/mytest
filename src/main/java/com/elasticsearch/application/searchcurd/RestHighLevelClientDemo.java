@@ -49,7 +49,7 @@ public class RestHighLevelClientDemo {
         User user = new User("王雷", 22, "卖鱼");
         String source = JSON.toJSONStringWithDateFormat(user, "");
         IndexRequest indexRequest = new IndexRequest(index, type);
-        indexRequest.source(source, XContentType.JSON).id("1");
+        indexRequest.source(source, XContentType.JSON).id("3");
         //index方法第二个参数can not null
         restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
     }
@@ -83,7 +83,7 @@ public class RestHighLevelClientDemo {
         sourceBuilder.from(0);
         sourceBuilder.size(10);
         //设置返回的数据中所需要的字段
-        sourceBuilder.fetchSource(new String[]{"age", "name"}, new String[]{});
+//        sourceBuilder.fetchSource(new String[]{"age", "name"}, new String[]{});
 
         MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery("age", "22");
 //        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery("name", "吴二狗");
@@ -104,6 +104,8 @@ public class RestHighLevelClientDemo {
         try {
             SearchResponse response = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
             //处理返回值----------
+            long value = response.getHits().getTotalHits().value;
+            System.out.println("查询总数为= "+value);
             SearchHits hits = response.getHits();
             SearchHit[] hits1 = hits.getHits();
             for (SearchHit documentFields : hits1) {
