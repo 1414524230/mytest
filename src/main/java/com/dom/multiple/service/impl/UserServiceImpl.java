@@ -6,6 +6,7 @@ import com.dom.multiple.service.OtherService;
 import com.dom.multiple.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
     private OtherService otherService;
 
     @Override
-    @Transactional()
+    @Transactional(propagation= Propagation.REQUIRED)
     public void insert() {
         User user = new User();
         user.setAge(18);
@@ -40,6 +41,6 @@ public class UserServiceImpl implements UserService {
         userMapper.insert(user);
         user.setId(UUID.randomUUID().toString());
         otherService.insert(user);
-        throw new RuntimeException();
+//        throw new RuntimeException();
     }
 }
