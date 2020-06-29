@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.　username.password",
+      "type": "java.lang.String",
+      "description": "Description for spring.　username.password."
+  }
+] }

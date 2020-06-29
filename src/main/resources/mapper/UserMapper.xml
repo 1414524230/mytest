@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dom.multiple.mapper.UserMapper">
+    <!--id对应UserDAO接口方法名-->
+    <!--parameterType对应参数类型-->
+    <!--resultType对应返回值类型-->
+    <!--注意sql语句字段和数据库对应-->
+    <select id="insert" parameterType="com.dom.multiple.bean.User" >
+        insert into user (id,username,age) values (#{id},#{username},#{age})
+    </select>
+
+    <update id="update" parameterType="com.dom.multiple.bean.User" >
+         update user set age=#{age} where username=#{username}
+    </update>
+
+</mapper>

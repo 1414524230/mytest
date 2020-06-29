@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/qyn?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    password: password
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+
+    #mybatis的相关配置
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.dom.multiple.bean
+  #开启驼峰命名
+  configuration:
+   map-underscore-to-camel-case: true
