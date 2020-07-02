@@ -22,8 +22,8 @@ public class WebServicePush implements ApplicationRunner {
         //使用publish方法发布,指定需要发布的ip和port
         try {
             //通过Endpoint发布webservice服务
-            EndpointImpl publish = (EndpointImpl)Endpoint.publish("http://172.25.37.9:8085/webServiceDemo", webServiceDemo);
-            EndpointImpl publish1 = (EndpointImpl)Endpoint.publish("http://172.25.37.9:8085/secondService", secondWebService);
+            EndpointImpl publish = (EndpointImpl)Endpoint.publish("http://172.25.36.222:8085/firstService", webServiceDemo);
+//            EndpointImpl publish1 = (EndpointImpl)Endpoint.publish("http://172.25.36.222:8086/secondService", secondWebService);
             //添加过滤器操作可对返回值作处理
 //            publish.getOutInterceptors().add(new ArtifactOutInterceptor());
             //添加过滤器操作可对请求值作处理
