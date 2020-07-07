@@ -8,7 +8,9 @@ package com.cnbg.service.sample.sample.intf;
 
 import com.cnbg.service.common.head.RequestHeadDTO;
 import com.cnbg.service.common.head.ResponseHeadDTO;
+import com.cnbg.service.sample.sample.bean.SampleRequestDTO;
 import com.cnbg.service.sample.sample.bean.SampleResponse;
+import com.cnbg.service.sample.sample.bean.SampleResponseDTO;
 
 import javax.jws.WebService;
 import java.util.logging.Logger;
@@ -36,9 +38,15 @@ public class SampleEndpointImpl implements Sample {
         System.out.println(sampleRequest);
         try {
             RequestHeadDTO requestHead = sampleRequest.getRequestHead();
+            String reqSeqNo = requestHead.getReqSeqNo();
+            String serviceName = requestHead.getServiceName();
+            String version = requestHead.getVersion();
             String consumerID = requestHead.getConsumerID();
             String providerID = requestHead.getProviderID();
-            String reqSeqNo = requestHead.getReqSeqNo();
+            String sign = requestHead.getSign();
+
+            SampleRequestDTO requestBody = sampleRequest.getRequestBody();
+            String input1 = requestBody.getInput1();
 
 
             System.out.println(consumerID+providerID+reqSeqNo+"嘿嘿嘿");
@@ -46,11 +54,19 @@ public class SampleEndpointImpl implements Sample {
 
 
             ResponseHeadDTO responseHeadDTO = new ResponseHeadDTO();
-            responseHeadDTO.setSeqNo(reqSeqNo);
-            responseHeadDTO.setAppCode(consumerID);
-            responseHeadDTO.setAppMessage(providerID);
-            sampleResponse.setResponseHead(responseHeadDTO);
+            responseHeadDTO.setSeqNo("seqno");
+            responseHeadDTO.setAppMessage("appmessage");
+            responseHeadDTO.setAppCode("appcode");
+            responseHeadDTO.setStatus(200);
+            responseHeadDTO.setEsbCode("esbcode");
+            responseHeadDTO.setReqSeqNo("reqseqno");
 
+            SampleResponseDTO sampleResponseDTO = new SampleResponseDTO();
+            sampleResponseDTO.setOutput1("output1");
+
+
+            sampleResponse.setResponseHead(responseHeadDTO);
+            sampleResponse.setResponseBody(sampleResponseDTO);
             return  sampleResponse;
         } catch (Exception ex) {
             ex.printStackTrace();

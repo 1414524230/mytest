@@ -9,13 +9,13 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * 
  * <pre>
- * &lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;name xmlns="http://service.cnbg.com/sample/sample/bean" xmlns:bean="http://service.cnbg.com/sample/sample/bean" xmlns:head="http://service.cnbg.com/common/head" xmlns:intf="http://service.cnbg.com/sample/sample/intf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;ÇëÇóÏûÏ¢Ìå&lt;/name&gt;
+ * &lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;name xmlns="http://service.cnbg.com/sample/sample/bean" xmlns:bean="http://service.cnbg.com/sample/sample/bean" xmlns:head="http://service.cnbg.com/common/head" xmlns:intf="http://service.cnbg.com/sample/sample/intf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½&lt;/name&gt;
  * </pre>
  * 
  * 
- * <p>SampleRequestDTO complex typeµÄ Java Àà¡£
+ * <p>SampleRequestDTO complex typeï¿½ï¿½ Java ï¿½à¡£
  * 
- * <p>ÒÔÏÂÄ£Ê½Æ¬¶ÎÖ¸¶¨°üº¬ÔÚ´ËÀàÖÐµÄÔ¤ÆÚÄÚÈÝ¡£
+ * <p>ï¿½ï¿½ï¿½ï¿½Ä£Ê½Æ¬ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
  * 
  * <pre>
  * &lt;complexType name="SampleRequestDTO"&gt;
@@ -33,14 +33,19 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SampleRequestDTO", propOrder = {
-    "input1"
+
+        "input1",
+        //--------åˆ†å‰²çº¿-------
+        /*"input1",
+        "input2"*/
 })
 public class SampleRequestDTO {
 
     protected String input1;
+//    protected String input2;
 
     /**
-     * »ñÈ¡input1ÊôÐÔµÄÖµ¡£
+     * ï¿½ï¿½È¡input1ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
      * 
      * @return
      *     possible object is
@@ -50,9 +55,12 @@ public class SampleRequestDTO {
     public String getInput1() {
         return input1;
     }
+   /* public String getInput2() {
+        return input2;
+    }*/
 
     /**
-     * ÉèÖÃinput1ÊôÐÔµÄÖµ¡£
+     * ï¿½ï¿½ï¿½ï¿½input1ï¿½ï¿½ï¿½Ôµï¿½Öµï¿½ï¿½
      * 
      * @param value
      *     allowed object is
@@ -62,5 +70,8 @@ public class SampleRequestDTO {
     public void setInput1(String value) {
         this.input1 = value;
     }
+   /* public void setInput2(String value) {
+        this.input2 = value;
+    }*/
 
 }
