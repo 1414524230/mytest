@@ -11,9 +11,7 @@ import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.MatchQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
@@ -118,6 +116,37 @@ public class RestHighLevelClientDemo {
             e.printStackTrace();
         }
     }
+
+
+    @Test
+    public void searchReq() throws IOException {
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        //模糊查询
+        MatchPhrasePrefixQueryBuilder matchPhrasePrefixQueryBuilder = QueryBuilders.matchPhrasePrefixQuery("logInfo.logBody", "*" + "头孢" + "*");
+//        MatchPhraseQueryBuilder analyzer1 = QueryBuilders.matchPhraseQuery("logInfo.logBody", "西门子");
+        //设置分页查询
+        sourceBuilder.from(0);
+        sourceBuilder.size(100);
+        //-----------------------------------
+//        RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery("requestTime");
+//        rangeQueryBuilder.gte("2020-07-19");
+//        rangeQueryBuilder.lte("2020-07-21");
+        //-----------------------------------
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+        boolQueryBuilder.must(matchPhrasePrefixQueryBuilder);
+        sourceBuilder.query(boolQueryBuilder);
+        SearchRequest searchRequest = new SearchRequest("esblogtest");
+        searchRequest.source(sourceBuilder);
+        SearchResponse response = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
+        SearchHits hits = response.getHits();
+        SearchHit[] hits1 = hits.getHits();
+        for (SearchHit documentFields : hits1) {
+            String sourceAsString = documentFields.getSourceAsString();
+            System.out.println(sourceAsString);
+        }
+
+    }
+
 
 
 }
