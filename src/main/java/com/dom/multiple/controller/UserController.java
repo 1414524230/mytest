@@ -17,4 +17,13 @@ public class UserController {
         userService.insert();
     }
 
+    @GetMapping("/test")
+    public String test(){
+        return "hehe";
+    }
+
+
+
+
+
 }

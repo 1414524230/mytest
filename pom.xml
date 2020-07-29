@@ -49,11 +49,14 @@
             <artifactId>groovy-all</artifactId>
             <version>2.2.2</version>
         </dependency>
-        <dependency>
-            <groupId>dom4j</groupId>
-            <artifactId>dom4j</artifactId>
-            <version>1.6.1</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>dom4j</groupId>-->
+            <!--<artifactId>dom4j</artifactId>-->
+            <!--<version>1.6.1</version>-->
+        <!--</dependency>-->
+
+
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
@@ -95,6 +98,15 @@
             <version>5.2.7.RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>abc</groupId>
+            <artifactId>abc</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/dom4j/dom4j-1.6.1.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -105,5 +117,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>test</id>
+            <name>lib</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 
 </project>
